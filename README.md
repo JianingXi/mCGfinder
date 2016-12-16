@@ -3,7 +3,9 @@
 Health Informatics Lab, School of Information Science and Technology,
 University of Science and Technology of China
 
-mCGfinder
+# mCGfinder
+A novel network regularized matrix decomposition model to detect mutated cancer genes in heterogeneous cancer samples
+
 =======================
 mCGfinder is a tool for finding driver gene candidates in heterogeneous cancer samples using
  binary matrix of somatic mutations and copy number alterations.
