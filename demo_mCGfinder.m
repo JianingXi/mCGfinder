@@ -68,6 +68,7 @@ all_genes = net_map.Node2Gene_map.values;
 detected_genes = all_genes((min(Q_values,[],2)<0.05));
 rmpath(genpath(bin_path));
 
+mkdir('./output')
 save('./output/Result.mat',...
     'X_Net','S_vec_final','G_vec_final','Q_values','P_values',...
     'detected_genes','Symbol_Net','bkg_gene_ids','running_time');
