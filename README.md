@@ -1,14 +1,12 @@
-# Instructions to mCGfinder software (version 1.0.0)
-# Developer: Jianing Xi <xjn@mail.ustc.edu.cn>
-Health Informatics Lab, School of Information Science and Technology,
-University of Science and Technology of China
-
 # mCGfinder
 A novel network regularized matrix decomposition model to detect mutated cancer genes in heterogeneous cancer samples
 
 =======================
-mCGfinder is a tool for finding driver gene candidates in heterogeneous cancer samples using
- binary matrix of somatic mutations and copy number alterations.
+Instructions to mCGfinder software (version 1.0.0)
+
+Developer: Jianing Xi <xjn@mail.ustc.edu.cn>
+Health Informatics Lab, School of Information Science and Technology,
+University of Science and Technology of China
 
 
 Requirement
@@ -37,11 +35,10 @@ If you want to analyze the demo data (TCGA BRCA somatic mutation data) through m
 the default configures, please run `./demo_mCGfinder.m` and then the result file will be saved
 in the directory `./output/` as `./output/Result.mat`.
 
-If you want to analyze a user-specific data, the sample-gene mutation binary matrix, the sample names 
-and the gene symbols of the samples must be provided. These three variable are then saved to be MATLAB 
-variables 'mutation_data' (binary matrix), 'sample_names' and 'gene_names' in the `./data` directoryas
-as the demo data. Then update the variable 'dir_data' in file `./demo_mCGfinder.m` with the directory
-of the new ".mat" data file.
+If you want to analyze a user-specific data, the mutation binary matrix (samples x genes), the sample
+names and the gene symbols of the samples must be provided. Save the three variables as 'mutation_mat',
+'sample_id' and 'gene_id_symbol'  as the demo data file in the `./data` directory . Then update the 
+string variable 'dir_data' in file `./demo_mCGfinder.m` with the directory of the new data file.
 
 The configurations of mCGfindercan be changed in script file `./demo_mCGfinder.m`, and the discriptions
 of these parameters are provided below:
@@ -67,4 +64,4 @@ multiforme (GBM), head and neck squamous cell carcinoma (HNSC) from [UCSC Cancer
 
 Contact
 ------------------------
-Please feel free to contact us if you need any help. <xjn@mail.ustc.edu.cn>
+Please feel free to contact us if you need any help: <xjn@mail.ustc.edu.cn>.
