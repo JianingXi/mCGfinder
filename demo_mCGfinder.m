@@ -44,7 +44,7 @@ verbose = 1;
 % --- format ---
 dir_data = './data/somatic_data_BRCA.mat';   % 'BLCA', 'GBM', 'HNSC'
 load(dir_data);
-X_in = gene_indiv_mat;
+X_in = mutation_mat;
 
 [X_Net,~,Net_Idx,~,Symbol_Net,~,bkg_gene_ids] = ...
     A00_00_InputToNetMat(net_map,X_in,gene_id_symbol,[bin_path '/GeneIDPreprocess'],1);
