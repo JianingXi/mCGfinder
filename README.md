@@ -60,6 +60,8 @@ In the `./data` directory, we provide example data files `./data/somatic_data_BR
 mutations in breast invasive carcinoma (BRCA) samples, bladder urothelial carcinoma (BLCA), glioblastoma
 multiforme (GBM), head and neck squamous cell carcinoma (HNSC) from [UCSC Cancer Genomics Browser]
 (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/).
+We then select the genes that are also included in the interaction network, and map these genes onto 
+binary mutation matrixs.
 
 
 Contact
