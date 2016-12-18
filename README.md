@@ -41,7 +41,7 @@ The configurations of mCGfindercan be changed in script file `./demo_mCGfinder.m
         |NetConf.lambda_T         |Tuning parameter . The default number is 5.                 |
         ----------------------------------------------------------------------------------------
 
-Example data files
+Example files of somatic mutation data
 ------------------------
 In the `./data` directory, we provide example data files `./data/somatic_data_BRCA.mat` of somatic mutations in breast invasive carcinoma (BRCA) samples, bladder urothelial carcinoma (BLCA), glioblastoma multiforme (GBM), head and neck squamous cell carcinoma (HNSC) from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/). We then select the genes that are also included in the interaction network, and map these genes onto binary mutation matrixs.
 
