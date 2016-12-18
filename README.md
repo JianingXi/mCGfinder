@@ -3,10 +3,7 @@ mCGfinder: a novel network regularized matrix decomposition method to detect mut
 =======================
 Instructions to mCGfinder software (version 1.0.0)
 
-Developer: Jianing Xi <xjn@mail.ustc.edu.cn>
-Health Informatics Lab,
-School of Information Science and Technology,
-University of Science and Technology of China
+Developer: Jianing Xi <xjn@mail.ustc.edu.cn> from Health Informatics Lab, School of Information Science and Technology, University of Science and Technology of China
 
 
 Requirement
@@ -14,7 +11,7 @@ Requirement
 * 4GB memory
 * MATLAB 2013a or later
 
-Network preprocessing
+Gene interaction network information
 ------------------------
 The default 
 If you want to use the default gene interaction network [iRefIndex 9] (http://irefindex.org), just ignore this step. Ohterwise, if you want to use a user-defined network, replace the two files below with the files of the user-defined network:
