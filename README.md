@@ -25,7 +25,7 @@ The first text file `index_genes` is a table of the connection between the node 
 
 Run mCGfinder on somatic mutation data files
 ------------------------
-We provide an example data file of somatic mutations in breast invasive carcinoma (BRCA) samples from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/) in `./example_data.zip`. To analyze this data, please extract the txt file `somatic_data_BRCA.txt` from `./example_data.zip` and folder the txt file in the `./data` folder. If you want to analyze the example data file with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/`.
+We provide an example data file of somatic mutations in breast invasive carcinoma (BRCA) samples from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/) in `./example_data.zip`. To analyze this data, please extract the txt file `somatic_data_BRCA.txt` from `./example_data.zip` and put the txt file in the `./data` folder. If you want to analyze the example data file with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/`.
 
 If you want to analyze a user-specific data, a txt file of the mutation binary table (samples x genes) of the sample names and the gene symbols must be provided as the format of the example data file. Put the txt file of the user-specific data in the `./data` folder and run `./demo_mCGfinder.m`.
 
