@@ -10,7 +10,7 @@ Developer: Jianing Xi <xjn@mail.ustc.edu.cn> from Health Informatics Lab, School
 Requirement
 ------------------------
 * 4GB memory
-* MATLAB 2013a or later
+* MATLAB 2015b or later
 
 Gene interaction network information
 ------------------------
@@ -25,9 +25,9 @@ The first text file `index_genes` is a table of the connection between the node 
 
 Run mCGfinder on somatic mutation data files
 ------------------------
-In the `./data` directory, we provide example data files of somatic mutations in breast invasive carcinoma (BRCA) samples, bladder urothelial carcinoma (BLCA), glioblastoma multiforme (GBM), head and neck squamous cell carcinoma (HNSC) from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/). If you want to analyze the example data files with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/` as `./output/Result.mat`.
+We provide an example data file of somatic mutations in breast invasive carcinoma (BRCA) samples from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/) in `./example_data.zip`. To analyze this data, please extract the txt file `somatic_data_BRCA.txt` from `./example_data.zip` and folder the txt file in the `./data` folder. If you want to analyze the example data file with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/`.
 
-If you want to analyze a user-specific data, the mutation binary matrix (samples x genes), the sample names and the gene symbols of the samples must be provided. Save the three variables as 'mutation_mat', 'sample_id' and 'gene_id_symbol' as the example data files in the `./data` directory . Then update the string variable 'dir_data' in file `./demo_mCGfinder.m` with the directory of the new data file.
+If you want to analyze a user-specific data, a txt file of the mutation binary table (samples x genes) of the sample names and the gene symbols must be provided as the format of the example data file. Put the txt file of the user-specific data in the `./data` folder and run `./demo_mCGfinder.m`.
 
 
 Configurations of mCGfinder 
@@ -60,8 +60,6 @@ The descriptions of output variables of mCGfinder are provided below:
         | VARIABLE NAME        | DESCRIPTION                                                            |
         =================================================================================================
         |detected_genes        |Genes detected by mCGfinder as significantly mutated cancer genes.      |
-        |                      |minimum proportion of the samples in every components given by the      |
-        |                      |mCGfinder. The default proportion is set to 15%.                        |
         -------------------------------------------------------------------------------------------------
         |S_sample_indicator    |The sample indicator vectors of all component, which indicates the      |
         |                      |assignment of tumour samples to the every components. The i-th          |

@@ -17,6 +17,9 @@ for i = 1:k
     A_Mat_all = sum(s1_cur.^2)*eye(GeneLen) + (NetConf.lambda_T)*(NetConf.Lap_mat);
     X_in = (A_Mat_all\X')';
     
+    if verbose
+        disp(['Permutation test of Comp' num2str(i) ' ...']);
+    end
     [Q_values(:,i),P_values(:,i)] ...
         = Perm_Test(full(X_in(cur_idx_u,:)),full(s1_cur(cur_idx_u)),full(G_vec_final(:,i)),verbose);
 end
@@ -30,8 +33,6 @@ function [Q_values,P_values] = Perm_Test(X_hat,S_cur,G_cur,verbose)
 
 GeneNum = length(G_cur);
 
-disp('Permuting ...');
-
 if sum(G_cur~=0) == 0
     if verbose
         disp('All coefficients in v is 0.');
@@ -41,7 +42,7 @@ if sum(G_cur~=0) == 0
     Q_values = ones(GeneNum,1);
 else
 
-    P_values = Signif_Test_Weighted_conv(X_hat,S_cur,G_cur);
+    P_values = Signif_Test_Weighted_conv(X_hat,S_cur,G_cur,verbose);
     Q_values = mafdr(P_values, 'BHFDR', 1);
 end
 
@@ -49,7 +50,7 @@ end
 
 
 
-function P_values = Signif_Test_Weighted_conv(X_hat,S_cur,G_cur)
+function P_values = Signif_Test_Weighted_conv(X_hat,S_cur,G_cur,verbose)
 
 Num_samp = length(S_cur);
 X_all_raw = diag(S_cur)*X_hat;
@@ -65,6 +66,11 @@ if dom_num > 10^5
 end
 
 for i_s = 1:Num_samp
+    
+    if ~mod(i_s,10) && verbose
+        disp('Permuting ...');
+    end
+    
     X_hat_i_s = X_all_raw(i_s,:);
     
     max_dom = max(X_hat_i_s);

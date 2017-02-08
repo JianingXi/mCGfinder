@@ -33,8 +33,6 @@
 %         | VARIABLE NAME        | DESCRIPTION                                                            |
 %         =================================================================================================
 %         |detected_genes        |Genes detected by mCGfinder as significantly mutated cancer genes.      |
-%         |                      |minimum proportion of the samples in every components given by the      |
-%         |                      |mCGfinder. The default proportion is set to 15%.                        |
 %         -------------------------------------------------------------------------------------------------
 %         |S_sample_indicator    |The sample indicator vectors of all component, which indicates the      |
 %         |                      |assignment of tumour samples to the every components. The i-th          |
@@ -57,9 +55,24 @@
 bin_path = './bin';
 addpath(genpath(bin_path));
 
+disp('Starting analyzing ...');
+
+if ~exist('./network','dir')
+    error('-- Directory "./network" is not found.');
+end
+
 % --- loading network ---
 GeneNodeFileDir = './network/index_genes.txt';
 NetworkFileDir = './network/edge_list.txt';
+
+if ~exist(GeneNodeFileDir,'file')
+    error(['-- File "' GeneNodeFileDir  '" is not found.']);
+end
+if ~exist(NetworkFileDir,'file')
+    error(['-- File "' NetworkFileDir  '" is not found.']);
+end
+
+disp('Loading network files ...');
 [net_map,Lap_mat] = PreprocessNetwork(GeneNodeFileDir,NetworkFileDir);
 
 % --- configure ---
@@ -70,35 +83,63 @@ NetConf.Lap_mat = Lap_mat;
 NetConf.lambda_T = 0.1;
 verbose = 1;
 clear Lap_mat NetworkFileDir GeneNodeFileDir
+
+if ~exist('./data','dir')
+    error('-- Directory "./data" is not found.');
+end
+
+
+fid_list = dir('./data/*.txt');
+num_File = length(fid_list);
+if num_File == 0
+    disp('-- No input data file found.');
+else
+    disp(['-- Totally ' num2str(num_File) ' data files found.']);
+end
+mkdir('./output');
+
+for i_file = 1:num_File
+    file_name_t = fid_list(i_file).name;
+    disp(['-- -- File No.' num2str(num_File) ': ' file_name_t]);
+    output_file_dir = ['./output/' file_name_t(1:(end-4))];
+    disp(['Creating directory "' output_file_dir '" ...']);
+    mkdir(output_file_dir);
     
-% --- format ---
-dir_data = './data/somatic_data_BRCA.mat';   % 'BLCA', 'GBM', 'HNSC'
-load(dir_data);
-% mutation_mat;
+    % read data
+    [mutation_mat, sample_id, gene_id_symbol] = R01_read_gene_mat(['./data/' file_name_t]);
 
-[X_input,~,Symbol_Net] = A00_00_InputToNetMat(net_map,mutation_mat,gene_id_symbol,[bin_path '/GeneIDPreprocess'],1);
-clear dir_data mutation_mat
+    [X_input,~,Symbol_Net] = A00_00_InputToNetMat(net_map,mutation_mat,gene_id_symbol,[bin_path '/GeneIDPreprocess'],1);
+    clear dir_data mutation_mat
 
-% --- mCGfinder ---
-disp('Run mCGfinder ...')
-tStart = tic;
+    % --- mCGfinder ---
+    disp('Starting mCGfinder ...');
+    tStart = tic;
 
-[S_sample_indicator,G_gene_score] = mCGfinder(X_input,NetConf,CompLeastProportion,maxComponent,verbose);
+    [S_sample_indicator,G_gene_score] = mCGfinder(X_input,NetConf,CompLeastProportion,maxComponent,verbose);
 
-disp('Significance Test...')
-[Q_values, ~] = SignificLayerTest(X_input,S_sample_indicator,G_gene_score,NetConf);
-disp('Significance Test done!')
+    disp('Significance Test...');
+    [Q_values, ~] = SignificLayerTest(X_input,S_sample_indicator,G_gene_score,NetConf,verbose);
+    disp('Significance Test done!');
 
-running_time = toc(tStart);
-disp(['Total Time of NetSSVD: ' num2str(running_time/60,'%2.2f') ' minutes' char(10)])
-clear X_input sampled_id bkg_gene_ids CompLeastProportion tStart ...
-    gene_id_symbol NetConf CompLeastProportion maxComponent verbose
+    running_time = toc(tStart);
+    disp(['Total Time of mCGfinder: ' num2str(running_time/60,'%2.2f') ' minutes' char(10)])
+    clear X_input bkg_gene_ids CompLeastProportion tStart ...
+        NetConf CompLeastProportion maxComponent verbose
+    
+    all_genes = net_map.Node2Gene_map.values;
+    significance_scores = min(Q_values,[],2);
+    [sort_signif,ind_sort] = sort(significance_scores);
+    ind_th = find(sort_signif>=0.05,1) - 1;
+    detected_genes = all_genes(ind_sort(1:ind_th));
+    clear all_genes net_map ind_th sort_signif ind_sort significance_scores
+    
+    
+    R02_00_output_vars(output_file_dir,detected_genes,S_sample_indicator,Symbol_Net,G_gene_score,Q_values,sample_id);
+    
+    save([output_file_dir '/Result.mat'],'detected_genes','S_sample_indicator','Symbol_Net','G_gene_score','Q_values');
+    
+end % end of file list for
 
-
-all_genes = net_map.Node2Gene_map.values;
-detected_genes = all_genes((min(Q_values,[],2)<0.05));
 rmpath(genpath(bin_path));
-clear all_genes bin_path net_map
+clear bin_path fid_list file_name_t gene_id_symbol i_file num_File output_file_dir sample_id ans
 
-mkdir('./output')
-save('./output/Result.mat','detected_genes','S_sample_indicator','Symbol_Net','G_gene_score','Q_values');
