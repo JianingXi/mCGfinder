@@ -80,7 +80,7 @@ The descriptions of output variables of mCGfinder are provided below:
         -------------------------------------------------------------------------------------------------
 
 
-mCGfinder standalone version
+mCGfinder for users without MATLAB licenses
 ------------------------
 
 For users without MATLAB licenses, we also offer mCGfinder standalone version for Windows `./mCGfinder_standalone.zip`.
