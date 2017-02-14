@@ -85,14 +85,15 @@ mCGfinder standalone version
 
 For users without MATLAB licenses, we also offer mCGfinder standalone version for Windows `./mCGfinder_standalone.zip`.
 
-Step 1: MATLAB runtime installer: verify the MATLAB runtime is installed and ensure you have installed version 8.5 (R2015a). If the MATLAB runtime is not installed, please download the Windows 64-bit version of the MATLAB runtime for R2015a from the MathWorks Web site by navigating to
+* Step 1: MATLAB runtime installer: verify the MATLAB runtime is installed and ensure you have installed version 8.5 (R2015a). If the MATLAB runtime is not installed, please download the Windows 64-bit version of the MATLAB runtime for R2015a from the MathWorks Web site by navigating to
  
    [http://www.mathworks.com/products/compiler/mcr/index.html] (http://www.mathworks.com/products/compiler/mcr/index.html)
-Or run the installation file `./MyAppInstaller_web.exe` in the zip file. 
+   
+  Or run the installation file `./MyAppInstaller_web.exe` in the zip file. 
 
-Step 2: Mutation data and network files: locate the executable file `mCGfinder.exe` and the two folder `data` and `network` in the same directory. Put the .txt files of mutation data in the `data` folder and network files `index_genes.txt` and `edge_list.txt` in the `network` folder as aforementioned.
+* Step 2: Mutation data and network files: locate the executable file `mCGfinder.exe` and the two folder `data` and `network` in the same directory. Put the .txt files of mutation data in the `data` folder and network files `index_genes.txt` and `edge_list.txt` in the `network` folder as aforementioned.
 
-Step 3: Run `mCGfinder.exe`. Please wait until the current program is finished, and the output variables are automatically saved as .txt files in folder `output`.
+* Step 3: Run `mCGfinder.exe`. Please wait until the current program is finished, and the output variables are automatically saved as .txt files in folder `output`.
 
 
 Contact
