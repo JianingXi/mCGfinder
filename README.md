@@ -89,7 +89,7 @@ For users without MATLAB licenses, we also offer mCGfinder standalone version fo
  
    [http://www.mathworks.com/products/compiler/mcr/index.html] (http://www.mathworks.com/products/compiler/mcr/index.html)
    
-  Or run the installation file `./MyAppInstaller_web.exe` in the zip file. 
+  Or run the installation file `MyAppInstaller_web.exe` in the zip file. 
 
 * Step 2: Mutation data and network files: locate the executable file `mCGfinder.exe` and the two folder `data` and `network` in the same directory. Put the .txt files of mutation data in the `data` folder and network files `index_genes.txt` and `edge_list.txt` in the `network` folder as aforementioned.
 
