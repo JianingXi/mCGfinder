@@ -10,7 +10,11 @@ Developer: Jianing Xi <xjn@mail.ustc.edu.cn> from Health Informatics Lab, School
 Requirement
 ------------------------
 * 4GB memory
+<<<<<<< HEAD
 * MATLAB R2015a or later
+=======
+* MATLAB 2015b or later
+>>>>>>> origin/master
 
 Gene interaction network information
 ------------------------
@@ -25,9 +29,15 @@ The first text file `index_genes.txt` is a table of the connection between the n
 
 Run mCGfinder on somatic mutation data file
 ------------------------
+<<<<<<< HEAD
 We provide an example data file of somatic mutations in breast invasive carcinoma (BRCA) samples from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/) in `./example_data.zip`. To analyze this data, please extract the .txt file `somatic_data_BRCA.txt` from `./example_data.zip` and put the txt file in the `./data` folder. If you want to analyze the example data file with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/`.
 
 If you want to analyze a user-specific data, a .txt file of the mutation binary table (samples x genes) of the sample names and the gene symbols must be provided as the format of the example data file. Put the txt file of the user-specific data in the `./data` folder and run `./demo_mCGfinder.m`.
+=======
+We provide an example data file of somatic mutations in breast invasive carcinoma (BRCA) samples from [UCSC Cancer Genomics Browser] (https://genome-cancer.soe.ucsc.edu/proj/site/hgHeatmap/) in `./example_data.zip`. To analyze this data, please extract the txt file `somatic_data_BRCA.txt` from `./example_data.zip` and put the txt file in the `./data` folder. If you want to analyze the example data file with the default configurations, please run `./demo_mCGfinder.m` and then the result file will be saved in the directory `./output/`.
+
+If you want to analyze a user-specific data, a txt file of the mutation binary table (samples x genes) of the sample names and the gene symbols must be provided as the format of the example data file. Put the txt file of the user-specific data in the `./data` folder and run `./demo_mCGfinder.m`.
+>>>>>>> origin/master
 
 
 Configurations of mCGfinder 
@@ -55,6 +65,7 @@ Output variables of mCGfinder
 ------------------------
 
 The descriptions of output variables of mCGfinder are provided below:
+<<<<<<< HEAD
 
         =================================================================================================
         | VARIABLE NAME        | DESCRIPTION                                                            |
@@ -92,7 +103,30 @@ Or run the installation file `./MyAppInstaller_web.exe` in the zip file.
 Step 2: Mutation data and network files: locate the executable file `mCGfinder.exe` and the two folder `data` and `network` in the same directory. Put the .txt files of mutation data in the `data` folder and network files `index_genes.txt` and `edge_list.txt` in the `network` folder as aforementioned.
 
 Step 3: Run `mCGfinder.exe`. Please wait until the current program is finished, and the output variables are saved as .txt files in folder `output`.
+=======
+>>>>>>> origin/master
 
+        =================================================================================================
+        | VARIABLE NAME        | DESCRIPTION                                                            |
+        =================================================================================================
+        |detected_genes        |Genes detected by mCGfinder as significantly mutated cancer genes.      |
+        -------------------------------------------------------------------------------------------------
+        |S_sample_indicator    |The sample indicator vectors of all component, which indicates the      |
+        |                      |assignment of tumour samples to the every components. The i-th          |
+        |                      |coefficient being 1 represents that the i-th samples are included in the|
+        |                      |component, and 0 otherwise.                                             |
+        -------------------------------------------------------------------------------------------------
+        |Symbol_Net            |The investigated gene list in the gene interaction network.             |
+        -------------------------------------------------------------------------------------------------
+        |G_gene_score          |The gene score vectors of all components, of which the coefficients are |
+        |                      |related to the gene lists variable 'Symbol_Net', and a higher value of  |
+        |                      |a certain coefficient presents a larger potential of the gene to be     |
+        |                      |cancer gene candidate.                                                  |
+        -------------------------------------------------------------------------------------------------
+        |Q_values              |The q-values of all investigated genes in variable 'Symbol_Net', which  |
+        |                      |are obtained by Benjamini-Hochberg false discovery rates control of the |
+        |                      |p-values of the investigated genes.                                     |
+        -------------------------------------------------------------------------------------------------
 
 Contact
 ------------------------
