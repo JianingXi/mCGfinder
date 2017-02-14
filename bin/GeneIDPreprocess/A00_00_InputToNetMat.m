@@ -1,4 +1,4 @@
-function [X_Net,X_NoNet,Net_Idx,NoNet_Idx,Symbol_Net,Symbol_NoNet,Gene_input] = A00_00_InputToNetMat(net_map,X_in,GeneSymbol,Preprocess_path,SymbolOrNot)
+function [X_Net,X_NoNet,Symbol_Net,Symbol_NoNet,Net_Idx,NoNet_Idx,Gene_input] = A00_00_InputToNetMat(net_map,X_in,GeneSymbol,Preprocess_path,SymbolOrNot)
 % ??????NetGene & InDB) | (NoNetGene & InDB) (OutDB)
 %  X_Net            | X_NoNet
 [SampN,InputGeneLen] = size(X_in);
