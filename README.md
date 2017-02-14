@@ -89,11 +89,11 @@ For users without MATLAB licenses, we also offer mCGfinder standalone version fo
  
    [http://www.mathworks.com/products/compiler/mcr/index.html] (http://www.mathworks.com/products/compiler/mcr/index.html)
    
-  Or run the installation file `./mCGfinder_standalone/MyAppInstaller_web.exe` in the zip file. 
+  Or run the installation file `./mCGfinder_standalone/MyAppInstaller_web.exe` provided in the .zip file. 
 
-* Step 2: Mutation data and network files: locate the executable file `./mCGfinder_standalone/mCGfinder.exe` and the two folders `./mCGfinder_standalone/data` and `./mCGfinder_standalone/network` in the same directory. Put the .txt files of mutation data in the `./mCGfinder_standalone/data` folder and network files `index_genes.txt` and `edge_list.txt` in the `./mCGfinder_standalone/network` folder as aforementioned.
+* Step 2: Extract the `./mCGfinder_standalone.zip` file, and locate the executable file `./mCGfinder_standalone/mCGfinder.exe` and the two folders `./mCGfinder_standalone/data` and `./mCGfinder_standalone/network` in the same directory. Put the .txt files of mutation data in the `./mCGfinder_standalone/data` folder and network files `index_genes.txt` and `edge_list.txt` in the `./mCGfinder_standalone/network` folder as aforementioned.
 
-* Step 3: Run `./mCGfinder_standalone/mCGfinder.exe`. Please wait until the current program is finished, and the output variables are automatically saved as .txt files in folder `output`.
+* Step 3: Run `./mCGfinder_standalone/mCGfinder.exe`. Please wait until the current program is finished, and the output variables are automatically saved as .txt files in folder `./mCGfinder_standalone/output`.
 
 
 Contact
