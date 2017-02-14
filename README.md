@@ -83,7 +83,7 @@ The descriptions of output variables of mCGfinder are provided below:
 mCGfinder standalone version
 ------------------------
 
-We also offer mCGfinder standalone version for Windows `./mCGfinder_standalone.zip` for users without MATLAB licenses.
+For users without MATLAB licenses, we also offer mCGfinder standalone version for Windows `./mCGfinder_standalone.zip`.
 
 Step 1: MATLAB runtime installer: verify the MATLAB runtime is installed and ensure you have installed version 8.5 (R2015a). If the MATLAB runtime is not installed, please download the Windows 64-bit version of the MATLAB runtime for R2015a from the MathWorks Web site by navigating to
  
