@@ -4,8 +4,8 @@ A novel network regularized matrix decomposition method to detect mutated cancer
 ## Citation
 [Xi, J., Li, A. and Wang, M., 2017. A novel network regularized matrix decomposition method to detect mutated cancer genes in tumour samples with inter-patient heterogeneity. Scientific reports, 7(1), p.2855.](https://www.nature.com/articles/s41598-017-03141-w)
 
-=======================
-Instructions to mCGfinder software (version 1.0.0)
+=================================================
+# Instructions to mCGfinder software (version 1.0.0)
 
 Developer: Jianing Xi <xjn@mail.ustc.edu.cn> from Health Informatics Lab, School of Information Science and Technology, University of Science and Technology of China
 
